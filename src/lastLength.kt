@@ -4,7 +4,7 @@ fun main() {
 }
 
 fun lengthOfLastWord(s: String): Int {
-    val lastElement=s.split(" ").last()
+    val lastElement = s.split(" ").last()
     return when (lastElement) {
         " " -> 0
         else -> lastElement.length

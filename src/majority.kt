@@ -1,7 +1,7 @@
 import java.lang.Exception
 
 fun main() {
-    println(majorityElement(intArrayOf(2, 2, 1, 1, 1, 2, 1, 1,1)))
+    println(majorityElement(intArrayOf(2, 2, 1, 1, 1, 2, 1, 1, 1)))
 }
 
 fun majorityElement(nums: IntArray): Int {
@@ -9,7 +9,7 @@ fun majorityElement(nums: IntArray): Int {
     val countList = setList.map { l -> nums.filter { it == l } }.map { it.size }
     return try {
         setList.zip(countList).first { it.second > nums.size / 2 }.first
-    }catch (e:Exception){
+    } catch (e: Exception) {
         return 0
     }
 }

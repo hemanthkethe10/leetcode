@@ -6,8 +6,8 @@ fun main() {
 
 fun singleNumber(nums: IntArray): Int {
     val totalCount = nums.toSet().fold(0) { acc, i -> acc + i } * 2
-    val givenListCount=nums.toList().fold(0){acc, i -> acc+i }
-    return totalCount-givenListCount
+    val givenListCount = nums.toList().fold(0) { acc, i -> acc + i }
+    return totalCount - givenListCount
 }
 
 fun singleNumberMap(nums: IntArray): Int {

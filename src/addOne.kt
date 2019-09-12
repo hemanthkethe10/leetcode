@@ -1,13 +1,12 @@
 fun main() {
-    println(plusOne(intArrayOf(9,8,9)))
+    println(plusOne(intArrayOf(9, 8, 9)))
 }
 
-fun plusOne(digits: IntArray):IntArray {
-    if (digits.toSet()== setOf(9)) {
-        println(listOf(1)+ List(digits.size){0})
+fun plusOne(digits: IntArray): IntArray {
+    if (digits.toSet() == setOf(9)) {
+        println(listOf(1) + List(digits.size) { 0 })
         return listOf(1).toIntArray() + List(digits.size) { 0 }.toIntArray()
-    }
-    else {
+    } else {
         return if (digits.last() != 9) {
             digits.mapIndexed { index, i ->
                 if (index == digits.size - 1) i + 1 else i

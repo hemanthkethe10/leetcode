@@ -1,5 +1,5 @@
 fun main() {
-    println(findDisappearedNumbers(intArrayOf(1,1)))
+    println(findDisappearedNumbers(intArrayOf(1, 1)))
 }
 
 fun findDisappearedNumbers(nums: IntArray): List<Int> {
