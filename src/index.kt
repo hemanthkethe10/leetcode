@@ -3,8 +3,8 @@ fun main() {
 }
 
 fun strStr(haystack: String, needle: String): Int {
-    if (needle == "")
-        return 0
+    return if (needle == "")
+        0
     else
-        return haystack.indexOf(needle)
+        haystack.indexOf(needle)
 }
