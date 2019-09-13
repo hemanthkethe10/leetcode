@@ -31,7 +31,7 @@ fun bintoDec(l: String): BigInteger {
         })
 }
 
-fun decToBin(num: BigInteger, str: String): String {
+tailrec fun decToBin(num: BigInteger, str: String): String {
     return if (num.equals(BigInteger("0")))
         str
     else {

@@ -1,5 +1,5 @@
 fun main() {
-    println(wordPattern("abba", "dog cat cat dogi"))
+    println(wordPattern("abba", "dog cat cat dog"))
 }
 
 fun wordPattern(pattern: String, str: String): Boolean {
