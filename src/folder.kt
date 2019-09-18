@@ -10,10 +10,9 @@ data class Files(val name: String)
 
 fun main() {
     val path = """C:\Users\Backflipt3\IdeaProjects\practice"""
-//    val (files,folders)=File(path).walk().maxDepth(1).partition { it.isFile }
     val structure = getPathStructure(File(path))
 //    println(structure)
-    display(structure,"\t")
+    display(structure, "")
 }
 
 fun getPathStructure(filePath: File): Folder {
@@ -27,9 +26,15 @@ fun File.getFilesAndFolders(): Pair<List<File>, List<File>> {
     return this.walk().maxDepth(1).partition { it.isFile }
 }
 
-fun display(folder: Folder,prefix:String) {
-    println(folder.files.joinToString(prefix = folder.foldername+"\n"+prefix,separator = "\n"+prefix))
-    folder.folders.map { display(it,"\t") }
+fun display(folder: Folder, prefix: String) {
+    println(
+        prefix + folder.foldername +
+                if (folder.files.isEmpty()) {
+                    " "
+                } else {
+                    folder.files.joinToString(prefix="\n" + prefix+"\t",separator = "\n" + prefix+"\t")
+                }
+    )
+                folder.folders.map { display(it, "$prefix\t") }
 
 }
-

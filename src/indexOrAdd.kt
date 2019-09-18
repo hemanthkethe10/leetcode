@@ -5,7 +5,7 @@ fun main() {
 fun searchInsert(nums: IntArray, target: Int): Int {
     return if (nums.indexOf(target) == -1) {
         try {
-            val alternateTarget = nums.filter { it > target }.last()
+            val alternateTarget = nums.last { it > target }
             nums.indexOf(alternateTarget) + 1
         } catch (e: Exception) {
             0

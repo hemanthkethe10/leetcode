@@ -1,12 +1,13 @@
 import java.lang.Exception
 
 fun main() {
-    println(singleNumber(intArrayOf(-6)))
+    println(singleNumber(intArrayOf(1,2,2,3,3)))
+    println(singleNumberMap(intArrayOf(1,2,3,4)))
 }
 
 fun singleNumber(nums: IntArray): Int {
     val totalCount = nums.toSet().fold(0) { acc, i -> acc + i } * 2
-    val givenListCount = nums.toList().fold(0) { acc, i -> acc + i }
+    val givenListCount = nums.fold(0) { acc, i -> acc + i }
     return totalCount - givenListCount
 }
 
