@@ -4,7 +4,7 @@ fun main() {
 
 fun wordPattern(pattern: String, str: String): Boolean {
     val patternMap = pattern.groupingBy { it }.eachCount()
-    val stringMap = str.split(" ").groupBy { it }.mapValues { it.value.size }
+    val stringMap = str.split(" ").groupingBy { it }.eachCount()
     val k = patternMap.values.toList() == stringMap.values.toList()
     return k
 }

@@ -1,12 +1,17 @@
+import java.math.BigInteger
+
 fun main() {
-    println(trailingZeroes(51))
+    println(trailingZeroes(25))
 }
 
-fun trailingZeroes(n: Long) {
-    println(factRec(n))
-    println(factNonRec(n))
-    println(factTailRec(n, 1))
-// return fact(n).toString().takeLastWhile { it=='0' }.length
+fun trailingZeroes(n: Int): Int {
+//    println(factRec(n))
+//    println(factNonRec(n))
+//    println(factTailRec(BigInteger(n.toString()),BigInteger("1")))
+    return if (n == 0 ) 0
+    else
+        factTailRec(BigInteger(n.toString()), BigInteger("1")).toString()
+            .takeLastWhile { it == '0' }.length
 }
 
 fun factNonRec(num: Long): Long {
@@ -23,10 +28,13 @@ fun factRec(num: Long): Long {
         num * factRec(num - 1)
 }
 
-tailrec fun factTailRec(num: Long, fact: Long): Long {
-    return if (num == 1L)
+tailrec fun factTailRec(num: BigInteger, fact: BigInteger): BigInteger {
+    return if (num == BigInteger("1"))
         fact
     else {
-        factTailRec(num - 1, num * fact)
+        factTailRec(
+            num.minus(BigInteger("1")),
+            num.multiply(BigInteger(fact.toString()))
+        )
     }
 }

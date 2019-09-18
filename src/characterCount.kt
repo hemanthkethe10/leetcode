@@ -3,7 +3,9 @@ fun main() {
 }
 
 fun countCharacters(words: Array<String>, chars: String) {
-    val charsMap = chars.groupingBy { it }.eachCount()
-    val wordsMap=words.map { it.groupingBy { l->l }.eachCount() }
-    wordsMap.map {  }
+    val charsMap = chars.toList().sorted()
+        .groupingBy { it }.eachCount()
+    println(charsMap)
+    val wordsMap=words.map { it.toList().sorted().groupingBy { l->l }.eachCount() }
+    println(wordsMap.map { it.keys })
 }
