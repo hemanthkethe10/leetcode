@@ -9,7 +9,7 @@ fun findPairs(nums: IntArray, k: Int):Int {
         k<0 -> 0
         else -> {
             val i = nums.mapIndexed { index,l ->
-                nums.filterIndexed { idx, i -> idx!= index }.map {  s->
+                nums.filterIndexed { idx, _ -> idx!= index }.map {  s->
                     if (l - s == k ) l to s else Int.MAX_VALUE to Int.MAX_VALUE }
             }.flatten()
             i.filter { it.first !=Int.MAX_VALUE }.toSet().size

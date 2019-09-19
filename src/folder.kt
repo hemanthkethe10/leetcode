@@ -1,7 +1,7 @@
 import java.io.File
 
 data class Folder(
-    val foldername: String,
+    val name: String,
     val files: List<Files>,
     val folders: List<Folder>
 )
@@ -19,7 +19,7 @@ fun getPathStructure(filePath: File): Folder {
     val (files, folders) = filePath.getFilesAndFolders()
     val subFiles = files.map { Files(it.name) }
     val subFolders = folders.drop(1).map { getPathStructure(it) }
-    return Folder(files = subFiles, folders = subFolders, foldername = folders.first().name)
+    return Folder(files = subFiles, folders = subFolders, name = folders.first().name)
 }
 
 fun File.getFilesAndFolders(): Pair<List<File>, List<File>> {
@@ -28,7 +28,7 @@ fun File.getFilesAndFolders(): Pair<List<File>, List<File>> {
 
 fun display(folder: Folder, prefix: String) {
     println(
-        prefix + folder.foldername +
+        prefix + folder.name +
                 if (folder.files.isEmpty()) {
                     " "
                 } else {

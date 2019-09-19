@@ -1,5 +1,24 @@
+import java.util.*
+
 fun main() {
-    println(isValid("{[]}"))
+    val str= "()[]{"
+    val stack=Stack<Char>()
+    str.map { if (listOf('(','{','[').contains(it)){
+            stack.push(it)
+        }else if (it==')' && !stack.isEmpty()&&stack.peek()=='('){
+        stack.pop()
+    } else if (it==']' && !stack.isEmpty()&& stack.peek()=='['){
+        stack.pop()
+    }else if (it=='}' && !stack.isEmpty()&& stack.peek()=='{'){
+        stack.pop()
+    }
+        else{
+        println("false")
+    }
+    }
+    println(stack.isEmpty())
+
+
 }
 
 fun isValid(s: String): Boolean {

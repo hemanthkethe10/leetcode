@@ -1,5 +1,5 @@
 fun main() {
-    println(letterCombinations("234"))
+    println(letterCombinations("23"))
 }
 
 fun letterCombinations(digits: String): List<String> {
@@ -9,7 +9,7 @@ fun letterCombinations(digits: String): List<String> {
     )
     return when {
         digits.isEmpty() -> emptyList()
-        digits.length ==1 -> phoneMap[digits.toList().first()]!!.map { it.toString() }
+        digits.length ==1 -> phoneMap.getValue(digits.toList().first()).map { it.toString() }
         else -> {
             val digitsList = digits.toList()
             val phoneDigits = digitsList.map { phoneMap[it]!! }

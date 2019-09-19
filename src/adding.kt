@@ -32,7 +32,7 @@ fun bintoDec(l: String): BigInteger {
 }
 
 tailrec fun decToBin(num: BigInteger, str: String): String {
-    return if (num.equals(BigInteger("0")))
+    return if (num == BigInteger("0"))
         str
     else {
         decToBin(num.divide(BigInteger("2")), str + "${num % BigInteger("2")}")
